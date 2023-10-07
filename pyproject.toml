@@ -7,8 +7,17 @@ name = "sps30"
 version = "0.1.0"
 description = "Python library for Sensirion SPS30 particulate matter sensor"
 
-[dependencies]
-pyparsing = "3.1.1"
+dependencies = [
+  "pyserial",
+]
+
+[project.optional-dependencies]
+plot = [
+  "matplotlib",
+]
+rest = [
+  "flask",
+]
 
 [tool.black]
 line-length = 79
@@ -20,7 +29,8 @@ strict = true
 [[tool.mypy.overrides]]
 module = [
   "serial",
-  "matplotlib.*"
+  "matplotlib.*",
+  #"flask",
 ]
 ignore_missing_imports = true
 
